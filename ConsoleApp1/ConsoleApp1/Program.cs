@@ -26,10 +26,8 @@ namespace ConsoleApp1
 
             for (int i = 0; i < secondList.Count; i++)
             {
-
                 for (int j = 0; j < secondList.Count; j++)
                 {
-
                     if (firstList[i] == secondList[j])
                     {
                         secondList.RemoveAt(j);
@@ -40,6 +38,7 @@ namespace ConsoleApp1
 
         static List<int> ChekList(List<int> listForCheck)
         {
+
             for (int i = 0; i < listForCheck.Count; i++)
             {
                 for (int j = i+1; j < listForCheck.Count; j++)
