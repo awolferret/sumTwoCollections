@@ -12,7 +12,7 @@ namespace ConsoleApp1
             List<int> list = new List<int>();
             ConvertToList(firstArray,list);
             ConvertToList(secondArray, list);
-            ChekForDoubles(list);
+            RemoveDoubles(list);
             ShowList(list);
         }
 
@@ -24,7 +24,7 @@ namespace ConsoleApp1
             }
         }
 
-        static void ChekForDoubles(List<int> list)
+        static void RemoveDoubles(List<int> list)
         {
             for (int i = 0; i < list.Count; i++)
             {
