@@ -7,65 +7,42 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            List<int> firstList = new List<int>();
-            firstList.Add(1);
-            firstList.Add(2);
-            firstList.Add(1);
-            List<int> secondList = new List<int>();
-            secondList.Add(3);
-            secondList.Add(2);
-            CompareList(firstList, secondList);
-            CombineList(firstList, secondList);
-            ShowList(firstList);
+            int[] firstArray = {1,2,1};
+            int[] secondArray = { 3, 2 };
+            List<int> list = new List<int>();
+            ConvertToList(firstArray,list);
+            ConvertToList(secondArray, list);
+            ChekForDoubles(list);
+            ShowList(list);
         }
 
-        static void CompareList(List<int> firstList, List<int> secondList)
+        static void ConvertToList(int [] arrayToConvert, List<int> list)
         {
-            firstList = ChekList(firstList);
-            secondList = ChekList(secondList);
-
-            for (int i = 0; i < secondList.Count; i++)
+            for (int i = 0; i < arrayToConvert.Length; i++)
             {
-                for (int j = 0; j < secondList.Count; j++)
+                list.Add(arrayToConvert[i]);
+            }
+        }
+
+        static void ChekForDoubles(List<int> list)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                for (int j = i+1; j < list.Count; j++)
                 {
-                    if (firstList[i] == secondList[j])
+                    if (list[i] == list[j])
                     {
-                        secondList.RemoveAt(j);
+                        list.RemoveAt(j);
                     }
                 }
             }
         }
 
-        static List<int> ChekList(List<int> listForCheck)
+        static void ShowList(List<int> list)
         {
-
-            for (int i = 0; i < listForCheck.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
-                for (int j = i+1; j < listForCheck.Count; j++)
-                {
-                    if (listForCheck[i] == listForCheck[j])
-                    {
-                        listForCheck.RemoveAt(j);
-                    }
-                }
-            }
-
-            return listForCheck;
-        }
-
-        static void CombineList(List<int> firstList, List<int> secondList)
-        {
-            for (int i = 0; i < secondList.Count; i++)
-            {
-                firstList.Add(secondList[i]);
-            }
-        }
-
-        static void ShowList(List<int> firstList)
-        {
-            for (int i = 0; i < firstList.Count; i++)
-            {
-                Console.WriteLine(firstList[i]);
+                Console.WriteLine(list[i]);
             }
         }
     }
